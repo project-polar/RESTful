@@ -10,7 +10,8 @@ public class Config extends JsonConfig {
     @Setter(AccessLevel.PROTECTED)
     @Getter
     private static Config inst;
-    private int port=8080;
+    private int port = 8080;
+    private String baseKey = "いいよ、来いよ";
 
     public Config(String rootDir) {
         super(rootDir);
