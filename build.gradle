@@ -12,6 +12,8 @@ apply plugin: 'com.github.johnrengelman.shadow'
 
 group 'cc.sfclub'
 version '1.0-SNAPSHOT'
+targetCompatibility=11
+sourceCompatibility=11
 shadowJar {
     zip64 true
     manifest {
