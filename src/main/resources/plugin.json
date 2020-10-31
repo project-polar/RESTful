@@ -1,0 +1,5 @@
+{
+  "name": "REST",
+  "main": "cc.sfclub.restful.Main",
+  "version": "0.0.1"
+}
