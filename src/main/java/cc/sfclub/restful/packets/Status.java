@@ -8,8 +8,9 @@ import lombok.Getter;
 @Builder
 public class Status extends Packet {
     @Builder.Default
-    private String msg="";
-    private Code code;
+    private String details = "";
+    private Code msg;
+
     public enum Code {
         ARGS_NOT_ENOUGH,
         WRONG_ARGS,
