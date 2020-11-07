@@ -30,6 +30,7 @@ public class Main extends Plugin {
         httpServer.requestHandler(mainRouter).listen(Config.getInst().getPort());
         logger.info("Listening ON http://LISTEN_ADDR:{}/ !", Config.getInst().getPort());
         ServiceProvider.setRegistry(Router.class, () -> mainRouter);
+        ServiceProvider.setRegistry(Vertx.class, () -> vertx);
     }
     @Override
     public void onEnable() {
