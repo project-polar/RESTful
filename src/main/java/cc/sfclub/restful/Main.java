@@ -2,6 +2,7 @@ package cc.sfclub.restful;
 
 import cc.sfclub.events.server.ServerStartedEvent;
 import cc.sfclub.plugin.Plugin;
+import cc.sfclub.service.ServiceProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServer;
@@ -26,8 +27,9 @@ public class Main extends Plugin {
     public void onServerStart(ServerStartedEvent e) {
         logger.info("RESTful Starting!");
         Config.setInst((Config) new Config(getDataFolder().toString()).saveDefaultOrLoad());
-        httpServer.requestHandler(mainRouter::accept).listen(Config.getInst().getPort());
-        logger.info("Visit http://LISTEN_ADDR:{}/api/v1/ping for check status!", Config.getInst().getPort());
+        httpServer.requestHandler(mainRouter).listen(Config.getInst().getPort());
+        logger.info("Listening ON http://LISTEN_ADDR:{}/ !", Config.getInst().getPort());
+        ServiceProvider.setRegistry(Router.class, () -> mainRouter);
     }
     @Override
     public void onEnable() {
